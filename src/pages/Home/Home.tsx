@@ -2,8 +2,7 @@ import React from 'react';
 import homeLogo from '../../assets/home.png'
 import './Home.css';
 
-
-export default function Home() {
+function Home() {
     return (
         <>
             <div className="bg-indigo-900 flex justify-center">
@@ -20,7 +19,6 @@ export default function Home() {
 
                     <div className="flex justify-center ">
                         <img src={homeLogo} alt="" className='w-2/3' />
-
                     </div>
                 </div>
             </div>
@@ -28,3 +26,5 @@ export default function Home() {
         </>
     );
 }
+
+export default Home;
