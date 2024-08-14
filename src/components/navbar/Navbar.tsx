@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../contexts/AuthContext'
 
 export default function Navbar() {
+    let navigate = useNavigate()
+
+    const { usuario, handleLogout } = useContext(AuthContext)
+
+    function logout() {
+        handleLogout()
+        alert('Usuario deslogado com sucesso')
+        navigate('/login')
+    }
+
+    let navbarComponent
 
     return (
         <>
@@ -10,13 +22,12 @@ export default function Navbar() {
                     <div className='text-2xl font-bold uppercase'>Blogzinat</div>
 
                     <div className='flex gap-4'>
-                        <Link to='/login' className='hover:text-purple-500 hover:font-bold'>Login</Link>
-                        <Link to='/home' className='hover:text-purple-500 hover:font-bold'>Home</Link>
-                        <div className='hover:text-purple-500 hover:font-bold'>Postagens</div>
-                        <div className='hover:text-purple-500 hover:font-bold'>Temas</div>
-                        <div className='hover:text-purple-500 hover:font-bold'>Cadastrar tema</div>
+                        <Link to='/postagens' className='hover:text-purple-500 hover:font-bold'>Postagens</Link>
+                        <Link to='/temas' className='hover:text-purple-500 hover:font-bold'>Temas</Link>
+                        <Link to='/cadastrarTema' className='hover:text-purple-500 hover:font-bold'>Cadastrar tema</Link>
                         <div className='hover:text-purple-500 hover:font-bold'>Perfil</div>
-                        <div className='hover:text-purple-500 hover:font-bold'>Sair</div>
+                        <Link to='' onClick={logout} className='hover:text-purple-500 hover:font-bold'>Sair</Link>
+                        
                     </div>
                 </div>
             </div>
