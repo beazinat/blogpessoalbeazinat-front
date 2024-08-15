@@ -2,46 +2,46 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
-import Postagem from '../../../models/Postagem';
+import Tema from '../../../models/Tema';
 import { buscar } from '../../../services/Service';
-import CardPostagem from '../cardPostagem/CardPostagem';
 
-function ListaPostagens() {
-    const [postagens, setPostagens] = useState<Postagem[]>([]);
+import { toastAlerta } from '../../../utils/toastAlerta';
+import CardTemas from '../../Temas/cardTemas/CardTemas';
+
+function ListaTemas() {
+    const [temas, setTemas] = useState<Tema[]>([]);
 
     let navigate = useNavigate();
 
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
 
-    useEffect(() => {
-        if (token === '') {
-            alert('Você precisa estar logado');
-            navigate('/');
-        }
-    }, [token]);
-
-    async function buscarPostagens() {
+    async function buscarTemas() {
         try {
-            await buscar('/postagens', setPostagens, {
-                headers: {
-                    Authorization: token,
-                },
+            await buscar('/temas', setTemas, {
+                headers: { Authorization: token },
             });
         } catch (error: any) {
             if (error.toString().includes('403')) {
-                alert('O token expirou, favor logar novamente')
+                toastAlerta('O token expirou, favor logar novamente', 'info')
                 handleLogout()
             }
         }
     }
 
     useEffect(() => {
-        buscarPostagens();
-    }, [postagens.length]);
+        if (token === '') {
+            toastAlerta('Você precisa estar logado', 'info');
+            navigate('/login');
+        }
+    }, [token]);
+
+    useEffect(() => {
+        buscarTemas();
+    }, [temas.length]);
     return (
         <>
-            {postagens.length === 0 && (
+            {temas.length === 0 && (
                 <Dna
                     visible={true}
                     height="200"
@@ -51,13 +51,19 @@ function ListaPostagens() {
                     wrapperClass="dna-wrapper mx-auto"
                 />
             )}
-            <div className='container mx-auto my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                {postagens.map((postagem) => (
-                    <CardPostagem key={postagem.id} post={postagem} />
-                ))}
+            <div className="flex justify-center w-full my-4">
+                <div className="container flex flex-col">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {temas.map((tema) => (
+                            <>
+                                <CardTemas key={tema.id} tema={tema} />
+                            </>
+                        ))}
+                    </div>
+                </div>
             </div>
         </>
     );
 }
 
-export default ListaPostagens;
+export default ListaTemas;
