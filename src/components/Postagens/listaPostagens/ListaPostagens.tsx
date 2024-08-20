@@ -1,24 +1,24 @@
-import React, { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Dna } from 'react-loader-spinner';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
-import Tema from '../../../models/Tema';
+import Postagem from '../../../models/Postagem';
 import { buscar } from '../../../services/Service';
 
 import { toastAlerta } from '../../../utils/toastAlerta';
-import CardTemas from '../../Temas/cardTemas/CardTemas';
+import CardPostagem from '../cardPostagem/CardPostagem';
 
-function ListaTemas() {
-    const [temas, setTemas] = useState<Tema[]>([]);
+function ListaPostagens() {
+    const [postagem, setPostagem] = useState<Postagem[]>([]);
 
     let navigate = useNavigate();
 
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
 
-    async function buscarTemas() {
+    async function buscarPostagens() {
         try {
-            await buscar('/temas', setTemas, {
+            await buscar('/postagens', setPostagem, {
                 headers: { Authorization: token },
             });
         } catch (error: any) {
@@ -37,11 +37,11 @@ function ListaTemas() {
     }, [token]);
 
     useEffect(() => {
-        buscarTemas();
-    }, [temas.length]);
+        buscarPostagens();
+    }, [postagem.length]);
     return (
         <>
-            {temas.length === 0 && (
+            {postagem.length === 0 && (
                 <Dna
                     visible={true}
                     height="200"
@@ -54,9 +54,9 @@ function ListaTemas() {
             <div className="flex justify-center w-full my-4">
                 <div className="container flex flex-col">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {temas.map((tema) => (
+                        {postagem.map((postagem) => (
                             <>
-                                <CardTemas key={tema.id} tema={tema} />
+                                <CardPostagem key={postagem.id} post={postagem} />
                             </>
                         ))}
                     </div>
@@ -66,4 +66,4 @@ function ListaTemas() {
     );
 }
 
-export default ListaTemas;
+export default ListaPostagens

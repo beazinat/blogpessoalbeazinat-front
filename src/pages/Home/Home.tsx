@@ -1,10 +1,7 @@
-import React from 'react';
 import homeLogo from '../../assets/home.png'
 import './Home.css';
 import ModalPostagem from '../../components/Postagens/modalPostagem/ModalPostagem';
 import ListaPostagens from '../../components/Postagens/listaPostagens/ListaPostagens';
-
-
 
 function Home() {
     return (
