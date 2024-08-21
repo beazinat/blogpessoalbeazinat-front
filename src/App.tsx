@@ -3,18 +3,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { ToastContainer } from 'react-toastify';
-import Navbar from './components/Navbar/Navbar.tsx';
-import Login from './pages/Login/Login.tsx';
-import Cadastro from './pages/Cadastro/Cadastro.tsx';
-import Home from './pages/Home/Home.tsx';
-import ListaTemas from './components/Temas/listaTemas/ListaTemas.tsx';
-import FormularioTema from './components/Temas/formularioTema/FormularioTema.tsx';
-import ListaPostagens from './components/Postagens/listaPostagens/ListaPostagens.tsx';
-import DeletarTema from './components/Temas/deletarTema/DeletarTema.tsx';
+import Navbar from './components/navbar/Navbar.tsx';
+import Login from './pages/login/Login.tsx';
+import Cadastro from './pages/cadastro/Cadastro.tsx';
+import Home from './pages/home/Home.tsx';
+import ListaTemas from './components/temas/listaTemas/ListaTemas.tsx';
+import FormularioTema from './components/temas/formularioTema/FormularioTema.tsx';
+import ListaPostagens from './components/Postagens/listaPostagens/ListaPostagens.tsx'; 
+import DeletarTema from './components/temas/deletarTema/DeletarTema.tsx';
 import FormularioPostagem from './components/Postagens/formularioPostagem/FormularioPostagem.tsx';
-import DeletarPostagem from './components/Postagens/deletarPostagem/DeletarPostagem';
-import Perfil from './pages/Perfil/Perfil.tsx';
-import Footer from './components/Footer/Footer.tsx';
+import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
+import Perfil from './pages/perfil/Perfil.tsx';
+import Footer from './components/footer/Footer.tsx';
 
 
 function App() {
