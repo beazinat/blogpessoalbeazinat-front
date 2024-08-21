@@ -12,7 +12,7 @@ import FormularioTema from './components/Temas/formularioTema/FormularioTema.tsx
 import ListaPostagens from './components/Postagens/listaPostagens/ListaPostagens.tsx';
 import DeletarTema from './components/Temas/deletarTema/DeletarTema.tsx';
 import FormularioPostagem from './components/Postagens/formularioPostagem/FormularioPostagem.tsx';
-import DeletarPostagem from './components/Postagens/deletarPostagem/DeletarPostagem.tsx';
+import DeletarPostagem from './components/Postagens/deletarPostagem/DeletarPostagem';
 import Perfil from './pages/Perfil/Perfil.tsx';
 import Footer from './components/Footer/Footer.tsx';
 
