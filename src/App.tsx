@@ -3,18 +3,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { ToastContainer } from 'react-toastify';
-import Navbar from './components/Navbar/Navbar';
-import Login from './pages/Login/Login';
-import Cadastro from './pages/Cadastro/Cadastro';
-import Home from './pages/Home/Home';
-import ListaTemas from './components/Temas/listaTemas/ListaTemas';
-import FormularioTema from './components/Temas/formularioTema/FormularioTema';
-import ListaPostagens from './components/Postagens/listaPostagens/ListaPostagens';
-import DeletarTema from './components/Temas/deletarTema/DeletarTema';
-import FormularioPostagem from './components/Postagens/formularioPostagem/FormularioPostagem';
-import DeletarPostagem from './components/Postagens/deletarPostagem/DeletarPostagem';
-import Perfil from './pages/Perfil/Perfil';
-import Footer from './components/Footer/Footer';
+import Navbar from './components/Navbar/Navbar.tsx';
+import Login from './pages/Login/Login.tsx';
+import Cadastro from './pages/Cadastro/Cadastro.tsx';
+import Home from './pages/Home/Home.tsx';
+import ListaTemas from './components/Temas/listaTemas/ListaTemas.tsx';
+import FormularioTema from './components/Temas/formularioTema/FormularioTema.tsx';
+import ListaPostagens from './components/Postagens/listaPostagens/ListaPostagens.tsx';
+import DeletarTema from './components/Temas/deletarTema/DeletarTema.tsx';
+import FormularioPostagem from './components/Postagens/formularioPostagem/FormularioPostagem.tsx';
+import DeletarPostagem from './components/Postagens/deletarPostagem/DeletarPostagem.tsx';
+import Perfil from './pages/Perfil/Perfil.tsx';
+import Footer from './components/Footer/Footer.tsx';
 
 
 function App() {

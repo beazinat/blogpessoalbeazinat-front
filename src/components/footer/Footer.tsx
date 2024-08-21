@@ -4,11 +4,9 @@ import { AuthContext } from '../../contexts/AuthContext'
 import { Link } from 'react-router-dom'
 
 function Footer() {
-    const { usuario, handleLogout } = useContext(AuthContext)
+    const { usuario} = useContext(AuthContext)
 
     let footerComponent
-
-    let data = new Date().getFullYear()
 
     if (usuario.token !== '') {
         footerComponent = (
