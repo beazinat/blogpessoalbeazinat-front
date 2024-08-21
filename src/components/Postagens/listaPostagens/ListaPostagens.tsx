@@ -6,7 +6,7 @@ import Postagem from '../../../models/Postagem';
 import { buscar } from '../../../services/Service';
 
 import { toastAlerta } from '../../../utils/toastAlerta';
-import CardPostagem from '../cardPostagem/CardPostagem';
+import CardPostagem from '../cardPostagem/CardPostagem'; 
 
 function ListaPostagens() {
     const [postagem, setPostagem] = useState<Postagem[]>([]);
